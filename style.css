@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+.upload-container {
+    margin: 20px auto;
+}
+#idCard {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.id-front, .id-back {
+    width: 300px;
+    height: 200px;
+    background: white;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+.id-front img, .id-back img {
+    width: 100%;
+    border-radius: 10px;
+}
+.id-details {
+    padding: 10px;
+}
