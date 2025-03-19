@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National ID Card Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>National ID Card Generator</h1>
+        <form id="uploadForm">
+            <input type="file" id="documentUpload" accept=".jpg,.jpeg,.png" required>
+            <button type="submit">Generate ID Card</button>
+        </form>
+        <div id="idCardFront" class="id-card">
+            <!-- Front side of the ID card -->
+            <div class="id-header">
+                <h2>National ID Card</h2>
+            </div>
+            <div class="id-content">
+                <img id="userPhoto" src="" alt="User Photo">
+                <div id="userInfo"></div>
+                <img id="qrCode" src="" alt="QR Code">
+            </div>
+        </div>
+        <div id="idCardBack" class="id-card">
+            <!-- Back side of the ID card -->
+            <div class="id-header">
+                <h2>Additional Information</h2>
+            </div>
+            <div id="additionalInfo"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
