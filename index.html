@@ -5,115 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ethiopian Digital ID Card</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
-        /* ID Card Flip Effect */
+        /* Custom CSS for ID card styling */
         .id-card {
-            perspective: 1000px;
-            width: 320px;
-            height: 500px;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.6s;
-        }
-        .id-card.flipped {
-            transform: rotateY(180deg);
-        }
-        .front, .back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
+            width: 300px;
+            background-color: white;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: white;
             padding: 20px;
+            font-family: Arial, sans-serif;
         }
-        .back {
-            transform: rotateY(180deg);
+        .id-card img {
+            border-radius: 5px;
+        }
+        .id-card h1 {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .id-card h2 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .id-card p {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        .id-card .section {
+            margin-bottom: 15px;
+        }
+        .id-card .section:last-child {
+            margin-bottom: 0;
         }
     </style>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <!-- ID Card Container -->
-    <div class="id-card" onclick="flipCard()">
-        <!-- Front of the ID Card -->
-        <div class="front bg-blue-100 p-4 rounded-lg">
-            <div class="flex justify-between items-center mb-4">
-                <img alt="Ethiopian flag" class="w-12 h-8" src="ethiopia_flag.png"/>
-                <div class="text-right">
-                    <p class="text-xs font-semibold">ኢትዮጵያ ዲጂታል መታወቂያ ካርድ</p>
-                    <p class="text-xs font-semibold">Ethiopian Digital ID Card</p>
-                </div>
-                <img alt="National ID logo" class="w-8 h-8" src="national_id_logo.png"/>
-            </div>
-            <div class="flex items-center mb-4">
-                <img alt="Profile picture" class="w-20 h-24 rounded-lg border" src="profile_photo.jpg"/>
-                <div class="ml-4">
-                    <p class="text-xs font-semibold">ሙሉ ስም | Full Name</p>
-                    <p class="text-sm font-bold">ጀማል ሀይዳር መሀመድ</p>
-                    <p class="text-sm font-bold">Jemal Heydar Mohammed</p>
-                </div>
-            </div>
-            <div class="mb-2">
-                <p class="text-xs font-semibold">የትውልድ ቀን | Date of Birth</p>
-                <p class="text-sm">01/01/1977 | 1984/09/11 EC</p>
-            </div>
-            <div class="mb-2">
-                <p class="text-xs font-semibold">ፆታ | Sex</p>
-                <p class="text-sm">ወንድ | Male</p>
-            </div>
-            <div class="mb-2">
-                <p class="text-xs font-semibold">የስልክ ቁጥር | Phone Number</p>
-                <p class="text-sm">0920459996</p>
-            </div>
-            <div class="mb-2">
-                <p class="text-xs font-semibold">ክልል | Region</p>
-                <p class="text-sm">Oromia</p>
-            </div>
-            <div class="flex justify-between items-center">
-                <div>
-                    <p class="text-xs font-semibold">ተ.ቁ | ID No</p>
-                    <p class="text-sm">2162 4958 3756 1407</p>
-                </div>
-                <img alt="Mini Profile" class="w-12 h-12 rounded-lg border" src="profile_photo.jpg"/>
+    <div class="id-card">
+        <!-- Header -->
+        <div class="header text-center">
+            <h1>Ethiopian Digital ID Card</h1>
+            <h2>ኢትዮጵያ ዲጂታል መታወቂያ ካርድ</h2>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="section flex items-center">
+            <img alt="Profile Picture" class="w-20 h-24" src="https://placehold.co/80x100"/>
+            <div class="ml-4">
+                <p class="font-bold">ቢሊሳ ያሲን ሙሳ</p>
+                <p class="font-bold">Bilisa Yasin Mussa</p>
+                <p>ID: 8653 6940 8925 7913</p>
             </div>
         </div>
 
-        <!-- Back of the ID Card -->
-        <div class="back bg-blue-200 p-4 rounded-lg">
-            <div class="text-center mb-4">
-                <h1 class="text-lg font-semibold">ኢትዮጵያ ዲጂታል መታወቂያ</h1>
-                <h2 class="text-sm">Ethiopian Digital ID Card</h2>
-            </div>
-            <div class="mb-2">
-                <p class="text-xs font-semibold">የተመዘገበበት ቀን | Registration Date</p>
-                <p class="text-sm">2023/10/01</p>
-            </div>
-            <div class="mb-2">
-                <p class="text-xs font-semibold">የተሰጠበት ቀን | Issue Date</p>
-                <p class="text-sm">2023/10/05</p>
-            </div>
-            <div class="text-center">
-                <div id="qrcode" class="mx-auto w-24 h-24"></div>
-                <p class="text-xs mt-2">Scan to verify</p>
-            </div>
+        <!-- Date of Birth Section -->
+        <div class="section">
+            <h2>የትውልድ ቀን | Date of Birth</h2>
+            <p>02/01/1996 | 2003/Sep/13</p>
+        </div>
+
+        <!-- Sex Section -->
+        <div class="section">
+            <h2>ፆታ | Sex</h2>
+            <p>ወንድ | Male</p>
+        </div>
+
+        <!-- Date of Expiry Section -->
+        <div class="section">
+            <h2>የመጠናቀቂያ ቀን | Date of Expiry</h2>
+            <p>2025/06/19 | 2033/Feb/26</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer text-center">
+            <p class="text-xs">Scan the QR code below for verification</p>
+            <img alt="QR Code" class="w-24 h-24 mx-auto" src="https://placehold.co/100x100"/>
         </div>
     </div>
-
-    <!-- JavaScript for Flip Effect & QR Code Generation -->
-    <script>
-        function flipCard() {
-            document.querySelector('.id-card').classList.toggle('flipped');
-        }
-
-        // Generate QR Code
-        const qrCodeData = "2162 4958 3756 1407"; // ID Number
-        new QRCode(document.getElementById("qrcode"), {
-            text: qrCodeData,
-            width: 100,
-            height: 100
-        });
-    </script>
 </body>
 </html>
