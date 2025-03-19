@@ -3,35 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>National ID Card Generator</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Ethiopian Digital ID Generator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>National ID Card Generator</h1>
-        <form id="uploadForm">
-            <input type="file" id="documentUpload" accept=".jpg,.jpeg,.png" required>
-            <button type="submit">Generate ID Card</button>
-        </form>
-        <div id="idCardFront" class="id-card">
-            <!-- Front side of the ID card -->
-            <div class="id-header">
-                <h2>National ID Card</h2>
-            </div>
-            <div class="id-content">
-                <img id="userPhoto" src="" alt="User Photo">
-                <div id="userInfo"></div>
-                <img id="qrCode" src="" alt="QR Code">
+    <h2>Ethiopian Digital ID Generator</h2>
+    <div class="upload-container">
+        <input type="file" id="fileInput" accept="image/*,.pdf">
+        <button onclick="generateID()">Generate ID</button>
+    </div>
+    
+    <div id="idCard">
+        <div class="id-front">
+            <img src="id_front_template.png" alt="Front Side" id="frontImage">
+            <div class="id-details">
+                <p><b>Full Name:</b> <span id="name"></span></p>
+                <p><b>Date of Birth:</b> <span id="dob"></span></p>
+                <p><b>Sex:</b> <span id="gender"></span></p>
+                <p><b>Nationality:</b> Ethiopian</p>
+                <p><b>ID Number:</b> <span id="idNumber"></span></p>
             </div>
         </div>
-        <div id="idCardBack" class="id-card">
-            <!-- Back side of the ID card -->
-            <div class="id-header">
-                <h2>Additional Information</h2>
-            </div>
-            <div id="additionalInfo"></div>
+
+        <div class="id-back">
+            <img src="id_back_template.png" alt="Back Side" id="backImage">
+            <p><b>Phone Number:</b> <span id="phone"></span></p>
+            <p><b>Region:</b> <span id="region"></span></p>
+            <p><b>Zone:</b> <span id="zone"></span></p>
+            <p><b>Woreda:</b> <span id="woreda"></span></p>
+            <img id="qrCode" src="" alt="QR Code">
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
