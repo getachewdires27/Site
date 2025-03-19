@@ -7,34 +7,44 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Ethiopian Digital ID Generator</h2>
-    <div class="upload-container">
-        <input type="file" id="fileInput" accept="image/*,.pdf">
-        <button onclick="generateID()">Generate ID</button>
-    </div>
-    
-    <div id="idCard">
-        <div class="id-front">
-            <img src="id_front_template.png" alt="Front Side" id="frontImage">
-            <div class="id-details">
-                <p><b>Full Name:</b> <span id="name"></span></p>
-                <p><b>Date of Birth:</b> <span id="dob"></span></p>
-                <p><b>Sex:</b> <span id="gender"></span></p>
-                <p><b>Nationality:</b> Ethiopian</p>
-                <p><b>ID Number:</b> <span id="idNumber"></span></p>
-            </div>
+    <div class="container">
+        <h2>የኢትዮጵያ ዲጂታል መታወቂያ መስጫ</h2>
+        
+        <div class="upload-section">
+            <input type="file" id="fileInput" accept=".pdf, image/*">
+            <button onclick="processDocument()">Upload & Generate ID</button>
         </div>
 
-        <div class="id-back">
-            <img src="id_back_template.png" alt="Back Side" id="backImage">
-            <p><b>Phone Number:</b> <span id="phone"></span></p>
-            <p><b>Region:</b> <span id="region"></span></p>
-            <p><b>Zone:</b> <span id="zone"></span></p>
-            <p><b>Woreda:</b> <span id="woreda"></span></p>
-            <img id="qrCode" src="" alt="QR Code">
+        <div id="idCard">
+            <!-- Front Side -->
+            <div class="id-card-front">
+                <img src="id_front_template.png" class="background">
+                <div class="overlay">
+                    <img id="photo" class="profile-pic">
+                    <p class="name"><b>ሙሉ ስም:</b> <span id="name"></span></p>
+                    <p><b>የትውልድ ቀን:</b> <span id="dob"></span></p>
+                    <p><b>ጾታ:</b> <span id="gender"></span></p>
+                    <p><b>መታወቂያ ቁጥር:</b> <span id="idNumber"></span></p>
+                </div>
+            </div>
+
+            <!-- Back Side -->
+            <div class="id-card-back">
+                <img src="id_back_template.png" class="background">
+                <div class="overlay">
+                    <p><b>ስልክ ቁጥር:</b> <span id="phone"></span></p>
+                    <p><b>ክልል:</b> <span id="region"></span></p>
+                    <p><b>ዞን:</b> <span id="zone"></span></p>
+                    <p><b>ወረዳ:</b> <span id="woreda"></span></p>
+                    <img id="qrCode" class="qr-code">
+                </div>
+            </div>
         </div>
     </div>
 
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/2.1.4/tesseract.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </body>
 </html>
