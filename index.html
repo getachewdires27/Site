@@ -3,48 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethiopian Digital ID Generator</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Ethiopian Digital ID</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h2>የኢትዮጵያ ዲጂታል መታወቂያ መስጫ</h2>
-        
-        <div class="upload-section">
-            <input type="file" id="fileInput" accept=".pdf, image/*">
-            <button onclick="processDocument()">Upload & Generate ID</button>
+
+    <div class="id-card">
+        <div class="header">
+            <img src="ethiopia_flag.png" class="flag" alt="Ethiopian Flag">
+            <div class="title">
+                <p class="amharic">የኢትዮጵያ ዲጂታል መታወቂያ ካርድ</p>
+                <p class="english">Ethiopian Digital ID Card</p>
+            </div>
+            <img src="national_id_logo.png" class="logo" alt="National ID">
         </div>
 
-        <div id="idCard">
-            <!-- Front Side -->
-            <div class="id-card-front">
-                <img src="id_front_template.png" class="background">
-                <div class="overlay">
-                    <img id="photo" class="profile-pic">
-                    <p class="name"><b>ሙሉ ስም:</b> <span id="name"></span></p>
-                    <p><b>የትውልድ ቀን:</b> <span id="dob"></span></p>
-                    <p><b>ጾታ:</b> <span id="gender"></span></p>
-                    <p><b>መታወቂያ ቁጥር:</b> <span id="idNumber"></span></p>
-                </div>
-            </div>
-
-            <!-- Back Side -->
-            <div class="id-card-back">
-                <img src="id_back_template.png" class="background">
-                <div class="overlay">
-                    <p><b>ስልክ ቁጥር:</b> <span id="phone"></span></p>
-                    <p><b>ክልል:</b> <span id="region"></span></p>
-                    <p><b>ዞን:</b> <span id="zone"></span></p>
-                    <p><b>ወረዳ:</b> <span id="woreda"></span></p>
-                    <img id="qrCode" class="qr-code">
-                </div>
-            </div>
+        <div class="photo-section">
+            <img src="profile_photo.jpg" class="profile-photo" alt="Profile Photo">
         </div>
+
+        <div class="details">
+            <p><strong>ሙሉ ስም | Full Name:</strong> Bilisa Yasin Mussa</p>
+            <p><strong>የትውልድ ቀን | Date of Birth:</strong> 02/01/1996 | 2003/Sep/13</p>
+            <p><strong>ፆታ | Sex:</strong> ወንድ | Male</p>
+            <p><strong>የሚያበቃበት ቀን | Date of Expiry:</strong> 2025/06/19 | 2033/Feb/26</p>
+        </div>
+
+        <div class="barcode-section">
+            <p>8653 6940 8925 7913</p>
+            <img src="barcode.png" class="barcode" alt="Barcode">
+        </div>
+
+        <div class="security-icons">
+            <img src="hologram.png" class="hologram" alt="Hologram">
+            <img src="mini-photo.jpg" class="mini-photo" alt="Mini Profile">
+        </div>
+
+        <button onclick="printCard()">Print ID</button>
     </div>
 
     <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/2.1.4/tesseract.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </body>
 </html>
